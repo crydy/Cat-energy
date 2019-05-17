@@ -1,0 +1,73 @@
+// Глобальные стили
+body {
+  .mp-clear;
+  min-width: @mobile-width;
+
+  font-family: @base-font-family;
+  font-size: @base-font-size;
+  line-height: @base-line-height;
+  font-style: normal;
+  font-weight: 400;
+  color: @font-color-1;
+
+  background-color:@theme-color-0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// Прижать футер вниз
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.page-main {
+  flex-grow: 1;
+}
+
+// Сменить расчет величин блоков
+html {
+	box-sizing: border-box;
+}
+*, *::before, *::after {
+	box-sizing: inherit;
+}
+img {
+	box-sizing: content-box;
+}
+
+// Доступно скрыть
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+// Прятать placeholder при фокусе
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } // FF 4-18
+input:focus::-moz-placeholder { color:transparent; } // FF 19+
+input:focus:-ms-input-placeholder { color:transparent; } // IE 10+
+textarea:focus::-webkit-input-placeholder { color:transparent; }
+textarea:focus:-moz-placeholder { color:transparent; } // FF 4-18
+textarea:focus::-moz-placeholder { color:transparent; } // FF 19+
+textarea:focus:-ms-input-placeholder { color:transparent; } // IE 10+

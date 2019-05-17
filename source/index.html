@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Energy</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+
+
+  <!-- SVG-sprite (инлайнится в разметку через PostHTML-include) -->
+  <div hidden>
+    <include src="source/img/sprite.svg"></include>
+  </div>
+  
+
+  <!-- Шапка -->
+  <header class="page-header">
+
+    <!-- Навигация -->
+    <nav class="main-nav">
+      <div class="main-nav__wrapper">
+
+        <ul class="main-nav__list
+                   site-list
+                   site-list--main-page
+                   site-list--open">
+
+          <!-- Логотип -->
+          <li class="site-list__item
+                     site-list__item--logo">
+            <!-- Лого-мини -->
+            <svg class="site-list__logo-mini-image" width="58" height="58" hidden>
+              <use xlink:href="#logo-mini">
+            </svg>
+            <a class="site-list__logo-link" tabindex="-1">
+              <!-- Лого -->
+              <svg class="site-list__logo-image" width="174" height="58">
+                <use xlink:href="#main-logo">
+              </svg>
+            </a>
+            <button class="site-list__toggle
+                           site-list__toggle--open
+                           site-list__toggle--no-js" type="button" aria-label="Показать меню"></button>
+          </li>
+  
+          <!-- Пункты навигации -->
+          <li class="site-list__item">
+            <a class="site-list__link site-list__link--main-page">Главная</a>
+          </li>
+          <li class="site-list__item">
+            <a class="site-list__link site-list__link--main-page" href="catalog.html">Каталог продукции</a>
+          </li>
+          <li class="site-list__item">
+            <a class="site-list__link site-list__link--main-page" href="form.html">Подбор программы</a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+
+
+
+  <!-- Основное содержание -->
+  <main class="page-main">
+    
+    <!-- Интро -->
+    <section class="site-intro">
+      <h1 class="site-intro__title"><span class="visually-hidden">Cat Energy - </span>функциональное<br>питание для котов</h1>
+
+      <p class="site-intro__slogan">Занялся сам? Займись котом!</p>
+
+      <a href="catalog.html" class="site-intro__button button">Подобрать программу</a>
+
+      <picture>
+        <source type="image/webp" srcset="img/webp/product-main.webp">
+        <img class="site-intro__img" src="img/product-main.png" alt="Изображение питания Cat Energy" height="280" width="270">
+      </picture>
+    </section>
+
+    <!-- Цель диеты -->
+    <section class="aim">
+      <h2 class="visually-hidden">Выбор цели диеты</h2>
+
+      <div class="aim__card">
+        <p class="aim__title aim__title--slim">Похудение</p>
+        <p class="aim__description">Ваш кот весит больше собаки и почти утратил способность лазить по деревьям? Пора на диету! Cat Energy Slim поможет вашему питомцу сбросить лишний вес.</p>
+        <a href="#" class="aim__link">Каталог slim</a>
+      </div>
+
+      <div class="aim__card">
+        <p class="aim__title aim__title--pro">Набор&nbsp;массы</p>
+        <p class="aim__description">Заработать авторитет среди дворовых котов и даже собак? Серия Cat Energy Pro поможет вашему коту нарастить необходимые мышцы!</p>
+        <a href="#" class="aim__link">Каталог pro</a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    page-footer
+  </footer>
+  
+</body>
+</html>
+
+
+<!--     <button class="button">Жми сюда</button>
+    <button class="button button--type-2">Жми сюда</button>
+
+    <label class="custom-indicator-label" for="123">
+      <input class="visually-hidden" type="checkbox" name="some-name" id="123" checked>
+      <span class="checkbox-indicator"></span>
+      Description
+    </label>
+
+    <label class="custom-indicator-label" for="456">
+      <input class="visually-hidden" type="radio" name="some-name" id="456" value="some-value" checked>
+      <span class="radio-indicator"></span>
+      Description
+    </label>
+    <label class="custom-indicator-label" for="4567">
+      <input class="visually-hidden" type="radio" name="some-name" id="4567" value="some-value">
+      <span class="radio-indicator"></span>
+      Description
+    </label>
+
+    <input class="input" type="text" id="gre" placeholder="Барсик">
+    <label for="gre">Description</label> -->

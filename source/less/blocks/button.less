@@ -1,0 +1,38 @@
+.button {
+  display: block;
+  font-family: inherit;
+  text-transform: uppercase;
+  line-height: 40px;
+  text-decoration: none;
+
+  padding: 0 15px;
+  border: none;
+
+  background-color: @button-color-1;
+  color: @font-color-0;
+
+  transition-duration: @base-transition-duration;
+  
+  &:hover,
+  &:focus {
+    background-color: @button-color-1-hover;
+    cursor: pointer;
+    outline: none;
+  }
+  &:active {
+    color: fade(@font-color-0, 30%);
+  }
+
+  &--type-2 {
+    color: @font-color-1;
+    background-color: @button-color-2;
+
+    &:hover,
+    &:focus {
+      background-color: @button-color-2-hover;
+    }
+    &:active {
+      color: fade(@font-color-1, 30%);
+    }
+  }
+}

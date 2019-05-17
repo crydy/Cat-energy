@@ -1,0 +1,311 @@
+// Less-блок для кастомизации чекбоксов и радиокнопок. 
+
+// В стилях должен быть глобальный паттерн визуального скрытия элементов:
+
+//     .visually-hidden:not(:focus):not(:active),
+//     input[type="checkbox"].visually-hidden,
+//     input[type="radio"].visually-hidden {
+//       position: absolute;
+//       width: 1px;
+//       height: 1px;
+//       margin: -1px;
+
+//       border: 0;
+//       padding: 0;
+
+//       white-space: nowrap;
+
+//       clip-path: inset(100%);
+//       clip: rect(0 0 0 0);
+//       overflow: hidden;
+//     }
+
+
+// HTML-структура должна иметь следующий вид для чекбоксов:
+
+//     <label class="custom-indicator-label
+//                   another-classes-for-stylization" for="123">
+//       <input class="visually-hidden" type="checkbox" name="some-name" id="123" checked>
+//       <span class="checkbox-indicator"></span>
+//       Description
+//     </label>
+
+// ... и аналогичный для радио-кнопок:
+
+//     <label class="custom-indicator-label
+//                   another-classes-for-stylization" for="456">
+//       <input class="visually-hidden" type="radio" name="some-name" id="456" value="some-value" checked>
+//       <span class="radio-indicator"></span>
+//       Description
+//     </label>
+
+
+// ----- Настройки checkbox -------
+
+// _____________Тело_____________
+// Размер чекбокса
+@checkbox-body-width: 40px;
+@checkbox-body-height: 40px;
+// Толщина рамки
+@checkbox-body-thickness: 1px;
+// Скругление рамки
+@checkbox-body-border-radius: 0;
+
+// Отступ вертикальный
+@checkbox-body-top-shift: 0;
+// Отступ горизонтальный
+@checkbox-body-left-shift: 0;
+
+// _____________Метка_____________
+// Толщина метки
+@checkbox-mark-thickness: 2px;
+
+// Длинна правой палки
+@checkbox-mark-right-length: 12px;
+// Сдвиг правой палки сверху
+@checkbox-mark-right-shift-top: 8.5px;
+// Сдвиг правой палки слева
+@checkbox-mark-right-shift-left: -.8px;
+
+// Длинна левой палки
+@checkbox-mark-left-length: 22px;
+// Сдвиг правой палки сверху
+@checkbox-mark-left-shift-top: 5px;
+// Сдвиг правой палки слева
+@checkbox-mark-left-shift-left: 5px;
+
+// Общий сдвиг сверху
+@checkbox-mark-shift-top: 13px;
+// Общий сдвиг слева
+@checkbox-mark-shift-left: 6px;
+
+// _____________Цвета_____________
+// Цвет рамки
+@checkbox-body-color: @checkbox-border-color;
+// Цвет заполнения
+@checkbox-fill-color: transparent;
+// Цвет метки
+@checkbox-mark-color: @theme-color-2;
+
+// Цвет рамки hover
+@checkbox-body-color-hover: @checkbox-border-color-hover;
+// Цвет заполнения hover
+@checkbox-fill-color-hover: inherit;
+// Цвет метки hover
+@checkbox-mark-color-hover: @theme-color-2;
+
+// Цвет рамки active
+@checkbox-body-color-active: fade(@checkbox-border-color-hover, 30%);
+// Цвет заполнения active
+@checkbox-fill-color-active: inherit;
+
+// Цвет рамки disabled
+@checkbox-body-color-disabled: grey;
+// Цвет заполнения disabled
+@checkbox-fill-color-disabled: inherit;
+
+
+// ----- Настройки radio -------
+
+// _____________Тело_____________
+// Размер radio-button
+@radio-body-width: @checkbox-body-width;
+@radio-body-height: @checkbox-body-height;
+// Толщина рамки
+@radio-body-thickness: 1px;
+// Скругление рамки
+@radio-body-border-radius: 50%;
+
+// Отступ вертикальный
+@radio-body-top-shift: 0;
+// Отступ горизонтальный
+@radio-body-left-shift: 0;
+
+// _____________Метка_____________
+// Толщина метки
+@radio-mark-width: 18px;
+@radio-mark-height: 18px;
+// Скругление метки
+@radio-mard-border-radius: 50%;
+
+// Сдвиг метки слева
+@radio-mark-shift-left: 50%;
+// Сдвиг метки сверху
+@radio-mark-shift-top: 50%;
+
+// _____________Цвета_____________
+// Цвет рамки
+@radio-body-color: @checkbox-border-color;
+// Цвет заполнения
+@radio-fill-color: transparent;
+// Цвет метки
+@radio-mark-color: @theme-color-2;
+
+// Цвет рамки hover
+@radio-body-color-hover: @checkbox-border-color-hover;
+// Цвет заполнения hover
+@radio-fill-color-hover: inherit;
+// Цвет метки hover
+@radio-mark-color-hover: @theme-color-2;
+
+// Цвет рамки active
+@radio-body-color-active: fade(@checkbox-border-color-hover, 30%);
+// Цвет заполнения active
+@radio-fill-color-active: inherit;
+
+// Цвет рамки disabled
+@radio-body-color-disabled: grey;
+// Цвет заполнения disabled
+@radio-fill-color-disabled: inherit;
+
+
+// ------ Настройки label ---------
+
+// Значение display
+@label-display-value: block;
+// Высота строки
+@label-line-height: @checkbox-body-height;
+// Отступ для инпутов
+@label-padding: @checkbox-body-width + 15px;
+
+
+// ---- Задержка цветового перехода ----
+
+@custom-indicator-transition-duration: @base-transition-duration;
+
+
+// Лейбл
+.custom-indicator-label {
+  display: @label-display-value;
+  position: relative;
+  padding-left: @label-padding;
+  line-height: @label-line-height;
+  cursor: pointer;
+  user-select: none;
+
+  &:active {
+    color: fade(@font-color-1, 30%);
+  }
+}
+
+// Чекбокс-индикатор
+.custom-indicator-label input[type="checkbox"] + .checkbox-indicator {
+  position: absolute;
+  top: @checkbox-body-top-shift;
+  left: @checkbox-body-left-shift;
+  
+  width: @checkbox-body-width;
+  height: @checkbox-body-height;
+  
+  border: @checkbox-body-thickness solid @checkbox-body-color;
+  border-radius: @checkbox-body-border-radius;
+
+  background-color: @checkbox-fill-color;
+
+  transition-duration: @custom-indicator-transition-duration;
+}
+.custom-indicator-label input[type="checkbox"]:hover + .checkbox-indicator,
+.custom-indicator-label input[type="checkbox"]:focus + .checkbox-indicator {
+  border-color: @checkbox-body-color-hover;
+  background-color: @checkbox-fill-color-hover;
+}
+.custom-indicator-label input[type="checkbox"]:active + .checkbox-indicator {
+  border-color: @checkbox-body-color-active;
+  background-color: @checkbox-fill-color-active;
+}
+.custom-indicator-label input[type="checkbox"]:disabled + .checkbox-indicator {
+  border-color: @checkbox-body-color-disabled;
+  background-color: @checkbox-fill-color-disabled;
+}
+
+// Метка чекбокс-индикатора
+.custom-indicator-label input[type="checkbox"]:checked + .checkbox-indicator::before {
+  content: "";
+
+  position: absolute;
+  top: @checkbox-mark-right-shift-top + @checkbox-mark-shift-top;
+  left: @checkbox-mark-right-shift-left + @checkbox-mark-shift-left;
+
+  width: @checkbox-mark-right-length;
+  height: @checkbox-mark-thickness;
+
+  background-color: @checkbox-mark-color;
+  transform: rotate(45deg);
+}
+.custom-indicator-label input[type="checkbox"]:checked + .checkbox-indicator::after {
+  content: "";
+
+  position: absolute;
+  top: @checkbox-mark-left-shift-top + @checkbox-mark-shift-top;
+  left: @checkbox-mark-left-shift-left + @checkbox-mark-shift-left;
+
+  width: @checkbox-mark-left-length;
+  height: @checkbox-mark-thickness;
+
+  background-color: @checkbox-mark-color;
+  transform: rotate(-45deg);
+}
+.custom-indicator-label input[type="checkbox"]:hover:checked + .checkbox-indicator::before,
+.custom-indicator-label input[type="checkbox"]:focus:checked + .checkbox-indicator::before,
+.custom-indicator-label input[type="checkbox"]:hover:checked + .checkbox-indicator::after,
+.custom-indicator-label input[type="checkbox"]:focus:checked + .checkbox-indicator::after {
+  background-color: @checkbox-mark-color-hover;
+}
+.custom-indicator-label input[type="checkbox"]:active:checked + .checkbox-indicator::before,
+.custom-indicator-label input[type="checkbox"]:active:checked + .checkbox-indicator::after {
+  background-color: fade(@checkbox-mark-color-hover, 30%);
+}
+
+
+// Радио-индикатор
+.custom-indicator-label input[type="radio"] + .radio-indicator {
+  position: absolute;
+  top: @radio-body-top-shift;
+  left: @radio-body-left-shift;
+  
+  width: @radio-body-width;
+  height: @radio-body-height;
+  
+  border: @radio-body-thickness solid @radio-body-color;
+  border-radius: @radio-body-border-radius;
+
+  background-color: @radio-fill-color;
+
+  transition-duration: @custom-indicator-transition-duration;
+}
+.custom-indicator-label input[type="radio"]:hover + .radio-indicator,
+.custom-indicator-label input[type="radio"]:focus + .radio-indicator {
+  border-color: @radio-body-color-hover;
+  background-color: @radio-fill-color-hover;
+}
+.custom-indicator-label input[type="radio"]:active + .radio-indicator {
+  border-color: @radio-body-color-active;
+  background-color: @radio-fill-color-active;
+}
+.custom-indicator-label input[type="radio"]:disabled + .radio-indicator {
+  border-color: @radio-body-color-disabled;
+  background-color: @radio-fill-color-disabled;
+}
+
+// Метка радио-индикатора
+.custom-indicator-label input[type="radio"]:checked + .radio-indicator::before {
+  content: "";
+
+  position: absolute;
+  top: calc(@radio-mark-shift-top - (@radio-mark-height / 2));
+  left: calc(@radio-mark-shift-left - (@radio-mark-width / 2));
+
+  width: @radio-mark-width;
+  height: @radio-mark-height;
+
+  border-radius: @radio-mard-border-radius;
+  background-color: @radio-mark-color;
+}
+.custom-indicator-label input[type="radio"]:hover:checked + .radio-indicator::before,
+.custom-indicator-label input[type="radio"]:focus:checked + .radio-indicator::before {
+  background-color: @radio-mark-color-hover;
+}
+.custom-indicator-label input[type="radio"]:active:checked + .radio-indicator::before,
+.custom-indicator-label input[type="radio"]:active:checked + .radio-indicator::before {
+  background-color: fade(@radio-mark-color-hover, 30%);
+}

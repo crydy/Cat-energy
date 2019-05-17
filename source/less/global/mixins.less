@@ -1,0 +1,46 @@
+// Сброс отступов
+.mp-clear() {
+  margin: 0;
+  padding: 0;
+}
+
+// Сброс для списков
+.list-clear() {
+  .mp-clear;
+  list-style: none;
+}
+
+// Сброс для ссылок
+.a-clear() {
+  color: inherit;
+  text-decoration: none;
+}
+
+// центровщик
+.container() {
+  outline: @g;
+  margin: 0 auto;
+  width: @mobile-width;
+  
+  @media (min-width: @tablet-width) {
+    width: @tablet-width;
+  }
+  @media (min-width: @desktop-width) {
+    width: @desktop-width;
+  }
+}
+
+// боковые отступы
+.indents() {
+  padding-left: @mobile-indent;
+  padding-right: @mobile-indent;
+  
+  @media (min-width: @tablet-width) {
+    padding-left: @tablet-indent;
+    padding-right: @tablet-indent;
+  }
+  @media (min-width: @desktop-width) {
+    padding-left: @desktop-indent;
+    padding-right: @desktop-indent;
+  }
+}
