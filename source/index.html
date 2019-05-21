@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-
+<div class="main-wrap">
 
   <!-- SVG-sprite (инлайнится в разметку через PostHTML-include) -->
   <div hidden>
@@ -98,15 +98,107 @@
         <p class="aim__description">Заработать авторитет среди дворовых котов и даже собак? Серия Cat Energy Pro поможет вашему коту нарастить необходимые мышцы!</p>
         <a href="#" class="aim__link">Каталог pro</a>
       </div>
-
     </section>
 
+    <!-- Как это работает -->
+    <section class="features">
+      <h2 class="features__title page-title">Как это работает</h2>
+
+      <div class="features__wrapper">
+        <p class="features__text">Функциональное питание содержит только полезные питательные вещества.</p>
+        <p class="features__text">Выпускается в виде порошка, который нужно лишь залить кипятком и готово.</p>
+        <p class="features__text">Замените один-два приема обычной еды на наше функциональное питание.</p>
+        <p class="features__text">Уже через месяц наслаждайтесь изменениями к лучшему вашего питомца!</p>
+      </div>
+    </section>
+
+    <!-- Живой пример -->
+    <section class="example">
+      <h2 class="example__title page-title">Живой пример</h2>
+
+      <p class="example__description">Борис сбросил 5 кг за 2 месяца, просто заменив свой обычный корм на Cat Energy Slim. Отличный результат без изнуряющих тренировок! При этом он не менял своих привычек и по-прежнему спит по 16 часов в день. </p>
+
+      <!-- Статистика -->
+      <section class="example__stats">
+        <h3 class="visually-hidden">Статистика результатов</h3>
+
+        <div class="example__stats-wrapper">
+          <p class="example__stats-wrapper-item">
+            <span class="example__stats-wrapper-item-text">Снижение веса</span><span class="visually-hidden">: </span><span class="example__stats-wrapper-item-value">5 кг</span>
+          </p>
+
+          <p class="example__stats-wrapper-item">
+            <span class="example__stats-wrapper-item-text">Затрачено времени</span><span class="visually-hidden">: </span><span class="example__stats-wrapper-item-value">60 дней</span>
+          </p>
+        </div>
+
+        <p class="example__stats-item">
+          <span class="example__stats-item-text">Затраты на питание: </span><span class="example__stats-item-value">15 000 руб.</span>
+        </p>
+
+      </section>
+
+      <!-- Визуализация -->
+      <div class="example__photos" hidden>
+
+        <!-- Цветовой блок для кото-слайдера (для управления в js) -->
+        <div class="example__photos-after-bg"></div>
+
+        <!-- Фотографии -->
+        <div class="example__photos-wrapper">
+
+          <div class="example__photos-wrapper-overlay
+                      example__photos-wrapper-overlay-before"> 
+            <picture>
+              <source type="image/webp" srcset="img/webp/boris-before.webp">
+              <img class="example__photos-wrapper-img
+                          example__photos-wrapper-img--before"
+                   src="img/boris-before.png" alt="Фото Бориса до спец-диеты">
+            </picture>
+          </div>
+          
+          <div class="example__photos-wrapper-overlay
+                      example__photos-wrapper-overlay-after">
+            <picture>
+              <source type="image/webp" srcset="img/webp/boris-after.webp">
+              <img class="example__photos-wrapper-img
+                          example__photos-wrapper-img--after"
+                   src="img/boris-after.png" alt="Фото Бориса после спец-диеты">
+            </picture>
+          </div>
+
+        </div>
+
+        <!-- Блок управления -->
+        <div class="example__photos-control
+                    example__photos-control--no-js">
+          <button class="example__photos-control-button                        
+                       example__photos-control-button--before" class="button">Было</button>
+
+          <div class="example__photos-control-range" hidden>
+            <div class="example__photos-control-range-core"></div>
+          </div>
+
+          <button class="example__photos-control-button
+                         example__photos-control-button--after" class="button">Стало</button>
+        </div>
+
+        
+
+      </div>
+
+    </section>
   </main>
 
   <footer class="page-footer">
     page-footer
   </footer>
-  
+
+</div>
+
+
+<!-- Скрипты -->
+<script src="js/all.js"></script>
 </body>
 </html>
 
