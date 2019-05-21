@@ -1,0 +1,141 @@
+.features {
+  .container;
+  .indents;
+  border-top: 1px solid transparent;
+  padding-bottom: 42px;
+
+  &__text {
+    .mp-clear;
+
+    position: relative;
+    padding-left: 80px;
+    padding-top: 4px;
+
+    min-height: 60px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      top: 0;
+
+      width: 60px;
+      height: 60px;
+
+      background-color: @theme-color-2;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+    }
+    &:nth-child(1)::before {
+      background-image: url(../img/feature-1.png);
+    }
+    &:nth-child(2)::before {
+      background-image: url(../img/feature-2.png);
+    }
+    &:nth-child(3)::before {
+      background-image: url(../img/feature-3.png);
+    }
+    &:nth-child(4)::before {
+      background-image: url(../img/feature-4.png);
+    }
+  }
+}
+
+// только мобильная
+@media (max-width: @tablet-width - 1) {
+
+  .features__text:not(:last-child) {
+    margin-bottom: @mobile-indent;
+  }
+}
+
+// планшетная и выше
+@media (min-width: @tablet-width) {
+
+  .features {
+
+    &__wrapper {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__text {
+      flex-shrink: 0;
+      
+      min-height: 230px;
+      width: 250px;
+
+      padding-left: 0;
+      padding-top: 115px;
+
+      line-height: @base-line-height + 4;
+      font-size: @base-font-size + 2;
+
+      &::before {
+        width: 80px;
+        height: 80px;
+      }
+
+      &::after {
+        position: absolute;
+        z-index: -2;
+        top: -38px;
+        right: 0;
+
+        font-size: 282px;
+        line-height: 282px;
+        color: @theme-color-1;
+        font-family: Oswald, Arial, Helvetica, sans-serif;
+      }
+      &:nth-child(1)::after {
+        content: "1";
+      }
+      &:nth-child(2)::after {
+        content: "2";
+      }
+      &:nth-child(3)::after {
+        content: "3";
+      }
+      &:nth-child(4)::after {
+        content: "4";
+      }
+    }
+  }
+}
+
+// только планшетная
+@media (min-width: @tablet-width) and (max-width: @desktop-width - 1) {
+  .features__text {
+    &:nth-child(2n - 1) {
+      margin-right: 135px;
+    }
+
+    &:not(:last-child):not(:nth-last-child(2)) {
+      margin-bottom: 86px;
+    }
+
+    &:nth-last-child(2) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+@media (min-width: @desktop-width) {
+
+  .features {
+    padding-bottom: 0;
+
+    &__wrapper {
+      justify-content: space-between;
+    }
+
+    &__text {
+      margin: 0;
+    }
+  }
+}
