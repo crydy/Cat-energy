@@ -28,6 +28,8 @@
     
     color: @font-color-2;
     user-select: none;
+
+    transition-duration: @base-transition-duration;
     
     &[href]:hover,
     &[href]:focus {
@@ -45,10 +47,10 @@
     justify-content: flex-end;
 
     margin-left: -72px;
-  }
 
-  &__logo-image {
-    // width: auto;
+    &:focus {
+      outline: none;
+    }
   }
 
   &__logo-mini-image {
@@ -56,6 +58,72 @@
     width: 38px;
     position: absolute;
     left: @mobile-indent;
+  }
+
+  // Кнопка-открывашка меню
+  &__toggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: @mobile-indent;
+    top: calc(50% - 10px);
+  
+    // ... при открытом меню
+    &--open::before,
+    &--open::after {
+      position: absolute;
+      content: "";
+      width: 110%;
+      height: 2px;
+      left: -1px;
+      top: 10px;
+      background-color: @font-color-1;
+    }
+    &--open::before {
+      transform: rotate(45deg);
+    }
+    &--open::after {
+      transform: rotate(-45deg);
+    }
+  
+    // ... при закрытом меню
+    &--closed::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 3px;
+      left: 0;
+      top: 0;
+      background-color: @font-color-1;
+      box-shadow: 0 10px 0 0 @font-color-1,
+                  0 20px 0 0 @font-color-1;
+    }
+  
+    // цвета при активности
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+    &:hover::before,
+    &:hover::after {
+      background-color: @font-color-1;
+    }
+    &--closed:hover::before,
+    &--closed:hover::after {
+      box-shadow: 0 10px 0 0 @font-color-1,
+                  0 20px 0 0 @font-color-1;
+    }
+    &:active {
+      opacity: .3;
+    }
+  
+    // скрыть если не активен JS
+    &--no-js {
+      display: none;
+    }
   }
   
   &__toggle--no-js {

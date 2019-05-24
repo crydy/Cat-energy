@@ -27,8 +27,6 @@
   // (предотвращает баг с неплавным первым сдвигом в Edge & IE11)
   window.onload = function() {
     rangeCore.style.left = (slider.offsetWidth / 2) - (rangeCore.offsetWidth / 2) + 'px';
-    console.log(slider.getBoundingClientRect())
-    console.log(rangeCore.style.left)
   }
 
   // Двигать слайдер при юзерской активности

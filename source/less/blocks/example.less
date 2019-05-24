@@ -1,7 +1,6 @@
 .example {
   .container;
 
-  border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
 
   background-color: @theme-color-1;
@@ -219,6 +218,8 @@
 
     position: relative;
 
+    border-bottom: none;
+
     // общий цветовой фон
     &::before {
       content: "";
@@ -233,8 +234,6 @@
 
       background-color: #f2f2f2;
     }
-
-
 
     &__title {
       position: relative;

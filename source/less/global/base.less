@@ -72,6 +72,22 @@ textarea:focus:-moz-placeholder { color:transparent; } // FF 4-18
 textarea:focus::-moz-placeholder { color:transparent; } // FF 19+
 textarea:focus:-ms-input-placeholder { color:transparent; } // IE 10+
 
+// Элемент для передачи текущего брекпоинта в JS
+body::before {
+  display: none;
+  content: "mobile";
+}
+@media (min-width: @tablet-width) {
+  body::before {
+    content: "tablet";
+  }
+}
+@media (min-width: @desktop-width) {
+  body::before {
+    content: "desktop";
+  }
+}
+
 .main-wrap {
   .container;
   box-shadow: 0 0 8px .2px grey;
