@@ -1,5 +1,163 @@
 .page-footer {
   .container;
+  .indents;
   
   background-color: @theme-color-1;
+  border-top: 1px solid transparent;
+
+  &__logo-link {
+    position: relative;
+
+    display: flex;
+
+    width: 100%;
+
+    margin: 0 auto;
+    padding-top: 35px;
+    padding-bottom: 35px;
+
+    &-svg {
+      width: 130px;
+      height: 30px;
+  
+      margin: auto;
+  
+      color: @font-color-2;
+    }
+
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+
+    &:hover .page-footer__logo-link-svg,
+    &:focus .page-footer__logo-link-svg {
+      color: fade(@font-color-2, 70%);
+      cursor: pointer;
+    }
+    &:active .page-footer__logo-link-svg {
+      color: fade(@font-color-2, 30%);
+    }
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      bottom: 0;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: @main-footer-elem-underline;
+    }
+  }
+
+  &__social {
+    position: relative;
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      bottom: 0;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: @main-footer-elem-underline;
+    }
+  }
+
+  &__copyright {
+
+    &-link {
+      padding: 20px 0;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      text-decoration: none;
+      color: inherit;
+
+      &-text {
+        .mp-clear;
+        
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 16px;
+        font-size: 16px;
+      }
+
+      &:hover,
+      &:focus {
+        outline: none;
+      }
+      &:hover .page-footer__copyright-link-svg,
+      &:focus .page-footer__copyright-link-svg {
+        color: @theme-color-2;
+      }
+      &:active .page-footer__copyright-link-svg {
+        color: fade(@theme-color-2, 30%);
+      }
+    }
+  }
+}
+
+
+@media (min-width: @tablet-width) {
+
+  .page-footer {
+    padding-top: 55px;
+    padding-bottom: 55px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo-link {
+      .mp-clear;
+
+      width: auto;
+
+      &-svg {
+        .mp-clear;
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &__social {
+      .mp-clear;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &__copyright {
+      
+      &-link {
+        .mp-clear;
+
+        &-text {
+          margin-right: 22px;
+        }
+      }
+    }
+  }
+}
+
+
+@media (min-width: @desktop-width) {
+
+  .page-footer {
+    padding-top: 58px;
+    padding-bottom: 58px;
+  }
 }

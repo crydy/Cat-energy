@@ -1,0 +1,49 @@
+.social {
+  .list-clear;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  &__item:not(:last-child) {
+    margin-right: 35px;
+  }
+
+  &__link {
+    display: flex;
+
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+
+    &:hover .social__svg,
+    &:focus .social__svg {
+      color: @theme-color-2;
+    }
+
+    &:active .social__svg {
+      color: fade(@theme-color-2, 30%);
+    }
+  }
+  
+  &__svg {
+    margin: auto;
+    
+    width: 22px;
+    height: 22px;
+
+    color: @font-color-1;
+
+    &-vk {
+      width: 30px;
+    }
+
+    &-fb {
+      height: 28px;
+    }
+  }
+}

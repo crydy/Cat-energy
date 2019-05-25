@@ -17,7 +17,7 @@
   
 
   <!-- Шапка -->
-  <header class="page-header">
+  <header class="page-header" id="page-header">
 
     <!-- Навигация -->
     <nav class="main-nav">
@@ -195,13 +195,62 @@
       </div>
 
       <div class="contacts__map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.6037872533273!2d30.320858716096975!3d59.93871648187614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca145cc1%3A0x42b32648d8238007!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQuy4sIDE5LzgsINCh0LDQvdC60YIt0J_QtdGC0LXRgNCx0YPRgNCzLCAxOTExODY!5e0!3m2!1sru!2sru!4v1558523415001!5m2!1sru!2sru" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.6037872533273!2d30.320858716096975!3d59.93871648187614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca145cc1%3A0x42b32648d8238007!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQuy4sIDE5LzgsINCh0LDQvdC60YIt0J_QtdGC0LXRgNCx0YPRgNCzLCAxOTExODY!5e0!3m2!1sru!2sru!4v1558523415001!5m2!1sru!2sru" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen tabindex="-1"></iframe>
       </div>
     </section>
   </main>
 
+
+  <!-- Подвал -->
   <footer class="page-footer">
-    page-footer
+    
+    <!-- Лого -->
+    <a class="page-footer__logo-link" href="#page-header">
+      <svg class="page-footer__logo-link-svg" width="130" height="30">
+        <use xlink:href="#logo-footer">
+      </svg>
+    </a>
+
+    <!-- Социальные кнопки -->
+    <div class="page-footer__social">
+      <ul class="social">
+        <li class="social__item">
+          <a href="#" class="social__link" aria-label="Мы в контакте">
+            <svg class="social__svg social__svg-vk">
+              <use xlink:href="#icon-vk">
+            </svg>
+          </a>
+        </li>
+  
+        <li class="social__item">
+          <a href="#" class="social__link" aria-label="Мы в инстаграме">
+            <svg class="social__svg social__svg-inst">
+              <use xlink:href="#icon-instagram">
+            </svg>
+          </a>
+        </li>
+  
+        <li class="social__item">
+          <a href="#" class="social__link" aria-label="Мы в фейсбуке">
+            <svg class="social__svg social__svg-fb">
+              <use xlink:href="#icon-facebook">
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Копирайт -->
+    <div class="page-footer__copyright">
+      <a href="#" class="page-footer__copyright-link">
+        <p class="page-footer__copyright-link-text">
+          HTML Academy
+        </p>
+        <svg class="page-footer__copyright-link-svg" width="28" height="34">
+          <use xlink:href="#icon-copyright">
+        </svg>
+      </a>
+    </div>
   </footer>
 
 </div>
