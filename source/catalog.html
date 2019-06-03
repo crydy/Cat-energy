@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Energy</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+<div class="main-wrap">
+
+  <!-- SVG-sprite (инлайнится в разметку через PostHTML-include) -->
+  <div hidden>
+    <include src="source/img/sprite.svg"></include>
+  </div>
+  
+
+  <!-- Шапка -->
+  <header class="page-header">
+
+    <!-- Навигация -->
+    <nav class="main-nav">
+      <div class="main-nav__wrapper">
+
+        <ul class="main-nav__list
+                   site-list
+                   site-list--open">
+
+          <!-- Логотип -->
+          <li class="site-list__item
+                     site-list__item--logo">
+            <!-- Лого-мини -->
+            <svg class="site-list__logo-mini-image" width="58" height="58" hidden>
+              <use xlink:href="#logo-mini">
+            </svg>
+            <a class="site-list__logo-link" tabindex="-1" href="index.html">
+              <!-- Лого -->
+              <svg class="site-list__logo-image" width="174" height="58">
+                <use xlink:href="#main-logo">
+              </svg>
+            </a>
+            <button class="site-list__toggle
+                           site-list__toggle--closed
+                           site-list__toggle--no-js" type="button" aria-label="Показать меню"></button>
+          </li>
+  
+          <!-- Пункты навигации -->
+          <li class="site-list__item">
+            <a class="site-list__link" href="index.html">Главная</a>
+          </li>
+          <li class="site-list__item">
+            <a class="site-list__link">Каталог продукции</a>
+          </li>
+          <li class="site-list__item">
+            <a class="site-list__link" href="form.html">Подбор программы</a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- Основное содержание -->
+  <main class="page-main">
+
+    <section class="catalog">
+      <h1 class="catalog__title page-title">Каталог продукции</h1>
+      <!-- Список товаров -->
+      <ul class="catalog__products">
+
+        <!-- Карточка товара 1 -->
+        <li class="catalog__product product">
+          <!-- Инфо -->
+          <div class="product__info">
+            <!-- Описание -->
+            <div class="product__description">
+              <!-- Название -->
+              <p class="product__title"><span>Cat Energy </span>Pro <span>500&nbsp;г</span></p>
+              <!-- Детали -->
+              <table class="product__table">
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Объем</td>
+                  <td class="product__table-td">500 г</td>
+                </tr>
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Вкус</td>
+                  <td class="product__table-td">Курица</td>
+                </tr>
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Цена</td>
+                  <td class="product__table-td">700 Р.</td>
+                </tr>
+              </table>
+            </div>
+            <!-- Фото -->
+            <picture class="product__img-wrapper">
+              <source type="image/webp" srcset="img/webp/product-1.webp">
+              <img class="product__img product__img--small" src="img/product-1.png" alt="Изображение товара">
+            </picture>
+          </div>
+          <!-- Кнопка -->
+          <a class="product__button button">Заказать</a>
+        </li>
+
+        <!-- Карточка товара 2 -->
+        <li class="catalog__product product">
+          <div class="product__info">
+            <div class="product__description">
+              <p class="product__title"><span>Cat Energy </span>Pro <span>1000&nbsp;г</span></p>
+              <table class="product__table">
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Объем</td>
+                  <td class="product__table-td">1000 г</td>
+                </tr>
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Вкус</td>
+                  <td class="product__table-td">Курица</td>
+                </tr>
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Цена</td>
+                  <td class="product__table-td">1000 Р.</td>
+                </tr>
+              </table>
+            </div>
+            <picture class="product__img-wrapper">
+              <source type="image/webp" srcset="img/webp/product-2.webp">
+              <img class="product__img" src="img/product-2.png" alt="Изображение товара">
+            </picture>
+          </div>
+          <a class="product__button button">Заказать</a>
+        </li>
+
+        <!-- Карточка товара 3 -->
+        <li class="catalog__product product">
+          <div class="product__info">
+            <div class="product__description">
+              <p class="product__title"><span>Cat Energy </span>Pro <span>500&nbsp;г</span></p>
+              <table class="product__table">
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Объем</td>
+                  <td class="product__table-td">500 г</td>
+                </tr>
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Вкус</td>
+                  <td class="product__table-td">Рыба</td>
+                </tr>
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Цена</td>
+                  <td class="product__table-td">700 Р.</td>
+                </tr>
+              </table>
+            </div>
+            <picture class="product__img-wrapper">
+              <source type="image/webp" srcset="img/webp/product-3.webp">
+              <img class="product__img  product__img--small" src="img/product-3.png" alt="Изображение товара">
+            </picture>
+          </div>
+          <a class="product__button button">Заказать</a>
+        </li>
+
+        <!-- Карточка товара 4 -->
+        <li class="catalog__product product">
+          <div class="product__info">
+            <div class="product__description">
+              <p class="product__title"><span>Cat Energy </span>Pro <span>1000&nbsp;г</span></p>
+              <table class="product__table">
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Объем</td>
+                  <td class="product__table-td">1000 г</td>
+                </tr>
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Вкус</td>
+                  <td class="product__table-td">Рыба</td>
+                </tr>
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Цена</td>
+                  <td class="product__table-td">1000 Р.</td>
+                </tr>
+              </table>
+            </div>
+            <picture class="product__img-wrapper">
+              <source type="image/webp" srcset="img/webp/product-4.webp">
+              <img class="product__img" src="img/product-4.png" alt="Изображение товара">
+            </picture>
+          </div>
+          <a class="product__button button">Заказать</a>
+        </li>
+
+        <!-- Карточка товара 5 -->
+        <li class="catalog__product product">
+          <div class="product__info">
+            <div class="product__description">
+              <p class="product__title"><span>Cat Energy </span>Slim <span>500&nbsp;г</span></p>
+              <table class="product__table">
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Объем</td>
+                  <td class="product__table-td">500 г</td>
+                </tr>
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Вкус</td>
+                  <td class="product__table-td">Гречка</td>
+                </tr>
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Цена</td>
+                  <td class="product__table-td">400 Р.</td>
+                </tr>
+              </table>
+            </div>
+            <picture class="product__img-wrapper">
+              <source type="image/webp" srcset="img/webp/product-5.webp">
+              <img class="product__img product__img--small" src="img/product-5.png" alt="Изображение товара">
+            </picture>
+          </div>
+          <a class="product__button button">Заказать</a>
+        </li>
+
+        <!-- Карточка товара 6 -->
+        <li class="catalog__product product">
+          <div class="product__info">
+            <div class="product__description">
+              <p class="product__title"><span>Cat Energy </span>Slim <span>1000&nbsp;г</span></p>
+              <table class="product__table">
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Объем</td>
+                  <td class="product__table-td">1000 г</td>
+                </tr>
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Вкус</td>
+                  <td class="product__table-td">Гречка</td>
+                </tr>
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Цена</td>
+                  <td class="product__table-td">700 Р.</td>
+                </tr>
+              </table>
+            </div>
+            <picture class="product__img-wrapper">
+              <source type="image/webp" srcset="img/webp/product-6.webp">
+              <img class="product__img" src="img/product-6.png" alt="Изображение товара">
+            </picture>
+          </div>
+          <a class="product__button button">Заказать</a>
+        </li>
+
+        <!-- Карточка товара 7 -->
+        <li class="catalog__product product">
+          <div class="product__info">
+            <div class="product__description">
+              <p class="product__title"><span>Cat Energy </span>Slim <span>500&nbsp;г</span></p>
+              <table class="product__table">
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Объем</td>
+                  <td class="product__table-td">500 г</td>
+                </tr>
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Вкус</td>
+                  <td class="product__table-td">Рис</td>
+                </tr>
+                <tr class="product__table-tr">
+                  <td class="product__table-td">Цена</td>
+                  <td class="product__table-td">500 Р.</td>
+                </tr>
+              </table>
+            </div>
+            <picture class="product__img-wrapper">
+              <source type="image/webp" srcset="img/webp/product-7.webp">
+              <img class="product__img product__img--small" src="img/product-7.png" alt="Изображение товара">
+            </picture>
+          </div>
+          <a class="product__button button">Заказать</a>
+        </li>
+
+
+        <!-- Карточка "показать ещё" -->
+        <li class="catalog__product product product--more">
+          <!-- Инфо -->
+          <div class="product__info product__info--more">
+            <!-- Описание -->
+            <div class="product__description product__description--more">
+              <!-- Название -->
+              <p class="product__title product__title--more"><span></span>Показать еще <span>100500 товаров</span></p>
+              <!-- Детали -->
+              <p class="product__text">
+                На самом деле вкусов гораздо больше!
+              </p>
+            </div>
+            <!-- Крест -->
+            <div class="product__img-wrapper product__img-wrapper--more"></div>
+          </div>
+          <!-- Кнопка -->
+          <a class="product__button product__button--more button button--type-2">Показать все</a>
+        </li>
+
+
+
+
+
+      </ul>
+
+    </section>
+    
+
+  </main>
+
+
+  <!-- Подвал -->
+  <footer class="page-footer">
+    
+    <!-- Лого -->
+    <a class="page-footer__logo-link" href="index.html">
+      <svg class="page-footer__logo-link-svg" width="130" height="30">
+        <use xlink:href="#logo-footer">
+      </svg>
+    </a>
+
+    <!-- Социальные кнопки -->
+    <div class="page-footer__social">
+      <ul class="social">
+        <li class="social__item">
+          <a href="#" class="social__link" aria-label="Мы в контакте">
+            <svg class="social__svg social__svg-vk">
+              <use xlink:href="#icon-vk">
+            </svg>
+          </a>
+        </li>
+  
+        <li class="social__item">
+          <a href="#" class="social__link" aria-label="Мы в инстаграме">
+            <svg class="social__svg social__svg-inst">
+              <use xlink:href="#icon-instagram">
+            </svg>
+          </a>
+        </li>
+  
+        <li class="social__item">
+          <a href="#" class="social__link" aria-label="Мы в фейсбуке">
+            <svg class="social__svg social__svg-fb">
+              <use xlink:href="#icon-facebook">
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Копирайт -->
+    <div class="page-footer__copyright">
+      <a href="#" class="page-footer__copyright-link">
+        <p class="page-footer__copyright-link-text">
+          HTML Academy
+        </p>
+        <svg class="page-footer__copyright-link-svg" width="28" height="34">
+          <use xlink:href="#icon-copyright">
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+</div>
+
+
+<!-- Скрипты -->
+<script src="js/all.js"></script>
+</body>
+</html>
