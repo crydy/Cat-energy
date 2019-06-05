@@ -75,6 +75,15 @@ textarea:focus:-moz-placeholder { color:transparent; } // FF 4-18
 textarea:focus::-moz-placeholder { color:transparent; } // FF 19+
 textarea:focus:-ms-input-placeholder { color:transparent; } // IE 10+
 
+// input-number: спрятать стрелки вверх и вниз
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 // Элемент для передачи текущего режима отображения в JS
 body::before {
   display: none;

@@ -206,6 +206,11 @@
       }
     }
 
+    &:nth-last-child(1),
+    &:nth-last-child(2) {
+      margin-bottom: 0;
+    }
+
     &--more {
       background-color: transparent;
       border: 1px solid @site-list-item-underline-color;
@@ -225,6 +230,11 @@
       &--more {
         margin-left: calc(50% - 30px);
       }
+    }
+
+    &:nth-last-child(3),
+    &:nth-last-child(4) {
+      margin-bottom: 0;
     }
   }
 }

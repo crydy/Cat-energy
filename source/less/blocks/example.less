@@ -335,14 +335,21 @@
         margin-bottom: 0;
 
         &-button {
-          position: static;
+          bottom: 65px;
 
           line-height: 20px;
           font-size: 20px;
+
+          &--before {
+            left: @tablet-indent;
+          }
+          &--after {
+            right: @tablet-indent;
+          }
         }
-       
+
         &-range {
-          width: 430px;
+          width: 550px;
 
           margin-left: 25px;
           margin-right: 25px;
@@ -410,6 +417,23 @@
 
         &-img {
           width: 740px;
+        }
+      }
+
+      &-control {
+
+        &-range {
+          width: 370px;
+        }
+        
+        &-button {
+
+          &--before {
+            left: @desktop-indent;
+          }
+          &--after {
+            right: @desktop-indent;
+          }
         }
       }
     }

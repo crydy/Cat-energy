@@ -1,4 +1,5 @@
-// Управление режимами отображения главной навигации сайта
+// Управление режимами отображения основной навигации сайта
+
 (function() {
   'use strict'
 
@@ -11,28 +12,35 @@
       // Состояния меню
       menuIsDisplayd,
       // Состояния меню на мобильном
-      menuIsDisplaydOnMobile;
+      menuIsDisplayedOnMobile;
 
 
-  // js подгружен
-  menuToggle.classList.remove('site-list__toggle--no-js');
+  // Дождаться подгрузки стилей для
+  // получения режима отображения из CSS
+  window.addEventListener('load', function() {
 
-  // Загрузились на мобилном?
-  if ( isMobile() ) {
-    toggleMenu(false); // скрыть меню
-  } else {
-    menuToggle.hidden = true; // скрыть кнопку
-  };
+    // js подгружен
+    menuToggle.classList.remove('site-list__toggle--no-js');
+
+    // Загрузились на мобилном?
+    if ( isMobile() ) {
+      // console.log('Это мобильный режим: ' + isMobile());
+      toggleMenu(false); // скрыть меню
+    } else {
+      menuToggle.hidden = true; // скрыть кнопку
+    };
+
+  });
 
   // Слушать кнопку-переключатель на мобильном
   menuToggle.addEventListener('click', function() {
     
     if (menuIsDisplayd) {
       toggleMenu(false);
-      menuIsDisplaydOnMobile = false;
+      menuIsDisplayedOnMobile = false;
     } else {
       toggleMenu(true);
-      menuIsDisplaydOnMobile = true;
+      menuIsDisplayedOnMobile = true;
     };
 
   });
@@ -44,7 +52,7 @@
     if( isMobile() ) {
 
       // считать предыдущее состояние меню
-      if (menuIsDisplaydOnMobile) {
+      if (menuIsDisplayedOnMobile) {
         toggleMenu(true);
       } else {
         toggleMenu(false);
@@ -98,5 +106,4 @@
 
     }
   };
-
 }());

@@ -1,13 +1,15 @@
 .input {
-  line-height: 50px;
-  font-size: @base-font-size + 6;
+  display: block;
+  font-family: inherit;
+  line-height: 44px;
+  font-size: @base-font-size + 2;
   text-transform: uppercase;
 
   border: 1px solid @input-border-color;
   
-  height: 50px;
-  padding-left: 18px;
-  padding-right: 18px;
+  height: 44px;
+  padding-left: 15px;
+  padding-right: 15px;
   
   &:hover {
     border: 1px solid @input-border-color-hover;
@@ -18,8 +20,17 @@
     border-color: @input-border-color-active;
     box-shadow: inset 0 0 0 1px @input-border-color-active;
   }
-  &:invalid {
-    border-color: @input-border-color-invalid;
-    box-shadow: inset 0 0 0 1px @input-border-color-invalid;
+  // &:invalid {
+  //   border-color: @input-border-color-invalid;
+  //   box-shadow: inset 0 0 0 1px @input-border-color-invalid;
+  // }
+}
+
+@media (min-width: @tablet-width) {
+
+  .input {
+    font-size: @base-font-size + 6;
+    line-height: 50px;
+    height: 50px;
   }
 }

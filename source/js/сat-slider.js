@@ -4,7 +4,22 @@
 (function() {
   'use strict'
 
+  // Если нет целевого блока - не выполнять
+  if (!document.querySelector('.example')) return;
+
+  // Установить длительность перехода (в секундах)
+  let transitionDuration = .7;
+
+  // Хранить ID таймера до конца анимации перехода
+  let timerId = null;
+
+  // Последняя нажатая кнопка
+  let lastButton = null;
+
+  // Целевые элементы DOM
   let mainBlock = document.querySelector('.example'),
+
+      // Контейнер элементов упрвления
       controlBlock = mainBlock.querySelector('.example__photos-control'),
 
       // Контейнер картинок
@@ -25,9 +40,9 @@
 
   // Установить сердечник в центр после загрузки стилей
   // (предотвращает баг с неплавным первым сдвигом в Edge & IE11)
-  window.onload = function() {
+  window.addEventListener('load', function() {
     rangeCore.style.left = (slider.offsetWidth / 2) - (rangeCore.offsetWidth / 2) + 'px';
-  }
+  });
 
   // Двигать слайдер при юзерской активности
   controlBlock.addEventListener('mousedown', moveSlider);
@@ -57,6 +72,10 @@
     if (evt.target.classList.contains('example__photos-control-range-core')) {
       evt.preventDefault();
 
+      // сбросить запомненную кнопку и анимацию элементов
+      lastButton = null;
+      clearTransition(true);
+
       // сдвиг курсора на целевом элементе по горизонтали (относительно левого края)
       shiftX = evt.clientX - core.getBoundingClientRect().left;
 
@@ -71,7 +90,7 @@
         document.body.removeEventListener('mousemove', moveAt);
         document.body.onmouseleave = null;
         document.body.onmouseup = null;
-      }
+      };
       // оборвать прослушку движения при ухода курсора с вьюпорта
       // (устраняется глюк с прилипанием ползунка к курсору,
       //  в случае, если "отжатие мыши" произошло за пределами
@@ -80,47 +99,55 @@
         document.body.removeEventListener('mousemove', moveAt);
         document.body.onmouseleave = null;
         document.body.onmouseup = null;
-      }
-    }
+      };
+    };
+
 
     // если клик по кнопке
     if (evt.target.classList.contains('example__photos-control-button')) {
 
-      // обеспечить плавный переход всем элементам
-      core.style.transition = '.7s';
-      overlayBefore.style.transition = '.7s';
-      overlayAfter.style.transition = '.7s';
-      backgroundAfter.style.transition = '.7s';
+      // если мы не в режиме анимации перехода
+      if (!timerId) {
 
-      // для кнопки "before"
-      if(evt.target.classList.contains('example__photos-control-button--before')) {
-        // вписать крайнее левое положение
-        core.style.left = leftBound + 'px';
-        // смесить границы оверлеев и цветового фона
-        shiftBounds(slider.getBoundingClientRect().left);
-      }
+        // для кнопки "before"
+        if (evt.target.classList.contains('example__photos-control-button--before')
+            && lastButton !== 'before') {
 
-      // для кнопки "after"
-      if(evt.target.classList.contains('example__photos-control-button--after')) {
-        // вписать крайнее правое положение
-        core.style.left = rightBound + 'px';
-        // смесить границы оверлеев и цветового фона
-        shiftBounds(slider.getBoundingClientRect().right);
-      }
+          // обеспечить плавную анимацию
+          setTransition();
+          // вписать крайнее левое положение
+          core.style.left = leftBound + 'px';
+          // смесить границы оверлеев и цветового фона
+          shiftBounds(slider.getBoundingClientRect().left);
+          // запомнить кнопку
+          lastButton = 'before';
+          // сбросить плавность анимации после завершения
+          clearTransition();
+        };
+  
+        // для кнопки "after"
+        if (evt.target.classList.contains('example__photos-control-button--after')
+            && lastButton !== 'after') {
+          
+          // обеспечить плавную анимацию
+          setTransition();
+          // вписать крайнее правое положение
+          core.style.left = rightBound + 'px';
+          // смесить границы оверлеев и цветового фона
+          shiftBounds(slider.getBoundingClientRect().right);
+          // запомнить кнопку
+          lastButton = 'after';
+          // сбросить плавность анимации после завершения
+          clearTransition();
+        };
+        
+      };
 
-      // обнулить плавный переход для нормальной отрисовки
-      // перетаскивания сердечника слайдера мышкой
-      setTimeout(function() {
-        overlayBefore.style.transition = '';
-        overlayAfter.style.transition = '';
-        backgroundAfter.style.transition = '';
-        core.style.transition = '';
-      }, 700);
-    }
+    };
 
     // Захват всех "движимых элементов" под курсор
-    // (для многократного вызова при прослушке движения курсора
-    //  с зажатой клавишей мыши)
+    // (для многократного вызова при прослушке
+    // движения курсора с зажатой клавишей мыши)
     function catchUnderCursor(PositionX) {
 
       // новая позиция (с учетом сдвига курсора)
@@ -135,7 +162,7 @@
 
       // смесить границы оверлеев и цветового фона
       shiftBounds();
-    }
+    };
 
     // функция смещения границ оверлеев и цветового фона
     // в соответствие с центром сердечника слайдера
@@ -156,20 +183,56 @@
        overlayAfter.style.width = rightDistance + 'px';
        // двигать цветовую подложку
        backgroundAfter.style.width = rightDistance + 'px';
-    }
+    };
     
     // функция 'удержания' элемента под
     // курсором для события "mousemove"
     function moveAt(evt) {
       catchUnderCursor(evt.clientX);
-    }
-  } 
+    };
+
+    // Установить заданную длительность анимации перехода
+    function setTransition() {
+      core.style.transition = transitionDuration + 's';
+      overlayBefore.style.transition = transitionDuration + 's';
+      overlayAfter.style.transition = transitionDuration + 's';
+      backgroundAfter.style.transition = transitionDuration + 's';
+    };
+
+    // обнулить плавную анимацию перехода для целевых
+    // элементов (для нормальной отрисовки перетаскивания
+    // сердечника слайдера указателем мыши в дальнейшем)
+    function clearTransition(instantly) {
+
+      if (instantly) { // сброс без задержки
+
+        clearTransitionStyles()
+      
+      } else { // ждать завершения текущей анимации перехода
+        
+        timerId = setTimeout(function() {
+          clearTransitionStyles()
+          timerId = null;
+        }, transitionDuration * 1000);
+
+      };
+
+      // удалить плавность перехода с элементов
+      function clearTransitionStyles() {
+        overlayBefore.style.transition = '';
+        overlayAfter.style.transition = '';
+        backgroundAfter.style.transition = '';
+        core.style.transition = '';
+      };
+    };
+
+  };
 
   function clearChanges() {
     overlayBefore.style.width = '';
     overlayAfter.style.width = '';
     backgroundAfter.style.width = '';
     rangeCore.style.left = (slider.offsetWidth / 2) - (rangeCore.offsetWidth / 2) + 'px';
-  }
+  };
 
 }());
