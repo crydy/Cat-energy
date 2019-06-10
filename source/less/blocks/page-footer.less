@@ -23,6 +23,8 @@
       margin: auto;
   
       color: @font-color-2;
+      
+      transition-duration: @base-transition-duration;
     }
 
     &:hover,
@@ -82,13 +84,17 @@
 
       text-decoration: none;
       color: inherit;
-
+      
       &-text {
         .mp-clear;
         
         font-family: Arial, Helvetica, sans-serif;
         line-height: 16px;
         font-size: 16px;
+      }
+
+      &-svg {
+        transition-duration: @base-transition-duration;
       }
 
       &:hover,

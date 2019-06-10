@@ -41,6 +41,11 @@
     width: calc(100% - (@mobile-indent * 2));
     margin-left: @mobile-indent;
     margin-right: @mobile-indent;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 2px @theme-color-2;
+    }
   }
 
   &::before {

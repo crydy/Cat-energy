@@ -60,6 +60,18 @@
     left: @mobile-indent;
   }
 
+  &__logo-image {
+    transition-duration: @base-transition-duration;
+
+    &:not(.site-list__logo-image--index-page):hover,
+    &:not(.site-list__logo-image--index-page):focus {
+      opacity: .7;
+    }
+    &:not(.site-list__logo-image--index-page):active {
+      opacity: .3;
+    }
+  }
+
   // Кнопка-открывашка меню
   &__toggle {
     background-color: transparent;

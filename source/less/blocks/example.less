@@ -150,6 +150,12 @@
         outline: none;
         cursor: pointer;
 
+        transition-duration: @base-transition-duration;
+
+        &:hover {
+          color: @theme-color-2;
+        }
+
         &--before {
           left: 40px;
         }
@@ -455,5 +461,10 @@
     position: static;
     margin-left: 15%;
     margin-right: 15%;
+
+    &:hover {
+      color: black;
+      cursor: inherit;
+    }
   }
 }

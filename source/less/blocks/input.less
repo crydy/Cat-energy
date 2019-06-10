@@ -10,6 +10,8 @@
   height: 44px;
   padding-left: 15px;
   padding-right: 15px;
+
+  transition-duration: @base-transition-duration;
   
   &:hover {
     border: 1px solid @input-border-color-hover;
@@ -20,10 +22,11 @@
     border-color: @input-border-color-active;
     box-shadow: inset 0 0 0 1px @input-border-color-active;
   }
-  // &:invalid {
-  //   border-color: @input-border-color-invalid;
-  //   box-shadow: inset 0 0 0 1px @input-border-color-invalid;
-  // }
+  // для обязательных полей после начала заполнения при невалидности данных
+  &:not(:placeholder-shown):required:invalid {
+    border-color: @input-border-color-invalid;
+    box-shadow: inset 0 0 0 1px @input-border-color-invalid;
+  }
 }
 
 @media (min-width: @tablet-width) {

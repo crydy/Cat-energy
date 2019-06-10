@@ -89,6 +89,12 @@
     color: inherit;
     transition: @base-transition-duration;
 
+    &:hover,
+    &:focus {
+      outline: none;
+      text-shadow: @theme-color-2 0 0 6px;
+    }
+
     &:active {
       color: fade(@font-color-1, 30%);
     }
